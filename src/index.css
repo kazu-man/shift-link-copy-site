@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+}
+
+body {
+  background: #000000;
+  font-family: "Pangram Pangram,Hiragino Sans,Meiryo,sans-serif";
+}
