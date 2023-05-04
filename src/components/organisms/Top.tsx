@@ -35,6 +35,7 @@ export default function Top() {
               {movingText.map((_text, index) => {
                 return index === textIndex ? (
                   <span
+                    key={"top_" + index}
                     className={`inline-block clipped-text animate-moveTopText translate-y-full`}
                   >
                     {movingText[index]}

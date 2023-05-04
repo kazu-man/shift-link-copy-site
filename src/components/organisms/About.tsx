@@ -11,9 +11,12 @@ export default function About() {
     "つないでいきます。",
   ];
 
-  const content = textList.map((text) => {
+  const content = textList.map((text, index) => {
     return (
-      <ScrollInViewComponent scrollConf={{ margin: "200px 0px" }}>
+      <ScrollInViewComponent
+        key={"about_" + index}
+        scrollConf={{ margin: "200px 0px" }}
+      >
         {text}
       </ScrollInViewComponent>
     );

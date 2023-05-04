@@ -23,7 +23,7 @@ export default function ScrollInViewComponent({
   const fadeUpStyle = {
     transform: isInView ? "none" : "translateY(30px)",
     opacity: isInView ? 1 : 0,
-    transition: "all 1s ease-in 0.3s",
+    transition: "all 1s ease-in-out 0.3s",
   };
 
   return (
