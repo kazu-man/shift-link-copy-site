@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import SectionLayout from "./SectionLayout";
+import SectionLayout from "../SectionLayout";
+import RotateAppearComponent from "../atoms/RotateAppearComponent";
 
 export default function Top() {
   const movingText = ["FUTURE", "EXPERIENCE", "METAVERSE"];
@@ -24,15 +25,13 @@ export default function Top() {
     <SectionLayout classes={["flex", "justify-center", "items-center"]}>
       <div className="w-2/3 h-2/4 whitespace-nowrap flex items-center relative">
         <div className="text-[120px] font-bold overflow-visible ">
-          <span className="animate-rotateAppear origin-bottom-left inline-block">
-            CONNECT
-          </span>
+          <RotateAppearComponent>CONNECT</RotateAppearComponent>
           <br />
           <div className="overflow-hidden inline-block leading-none">
-            <span className="pr-16 animate-rotateAppear origin-bottom-left inline-block">
+            <RotateAppearComponent classes={["pr-16"]}>
               THE
-            </span>
-            <div className="animate-rotateAppear origin-bottom-left inline-block">
+            </RotateAppearComponent>
+            <RotateAppearComponent>
               {movingText.map((_text, index) => {
                 return index === textIndex ? (
                   <span
@@ -42,7 +41,7 @@ export default function Top() {
                   </span>
                 ) : null;
               })}
-            </div>
+            </RotateAppearComponent>
           </div>
         </div>
         <div className="absolute  bottom-0 right-0 text-sm pt-10">

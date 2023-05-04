@@ -1,11 +1,13 @@
-import Header from "./components/Header";
-import Top from "./components/Top";
+import Header from "./components/molacules/Header";
+import About from "./components/organisms/About";
+import Top from "./components/organisms/Top";
 
 function App() {
   return (
     <>
       <Header />
       <Top />
+      <About />
     </>
   );
 }

@@ -1,5 +1,5 @@
-import BgHoverComponent from "./atom/BgHoverComponent";
-import BorderMoveComponent from "./atom/BorderHoverComponent";
+import BgHoverComponent from "../atoms/BgHoverComponent";
+import BorderMoveComponent from "../atoms/BorderHoverComponent";
 
 export default function Header() {
   const menus = [
