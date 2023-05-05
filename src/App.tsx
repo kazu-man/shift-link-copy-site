@@ -2,6 +2,7 @@ import useCursorCircle from "./components/hooks/useCursorAnimation";
 import Header from "./components/molacules/Header";
 import About from "./components/organisms/About";
 import Top from "./components/organisms/Top";
+import Services from "./components/organisms/Services";
 
 function App() {
   const { transformCursor, ref, cursorCircle } = useCursorCircle();
@@ -12,6 +13,7 @@ function App() {
       <Header cursorAction={{ transformCursor }} />
       <Top />
       <About />
+      <Services />
     </div>
   );
 }

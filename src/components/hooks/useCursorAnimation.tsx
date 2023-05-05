@@ -29,12 +29,12 @@ export default function useCursorCircle() {
   let mouseXPosition = 0;
   let mouseYPosition = 0;
 
-  if (mouse.x !== null && mouse.pageX) {
-    mouseXPosition = mouse.pageX;
+  if (mouse.x !== null && mouse.x) {
+    mouseXPosition = mouse.x;
   }
 
-  if (mouse.y !== null && mouse.pageY) {
-    mouseYPosition = mouse.pageY;
+  if (mouse.y !== null && mouse.y) {
+    mouseYPosition = mouse.y;
   }
 
   const variants: cursorVariantType = {

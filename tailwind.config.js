@@ -35,7 +35,7 @@ export default {
       },
       animation: {
         moveTopText: "moveTopText 5s ease-in-out forwards",
-        rotateAppear: "rotateAppear 1.5s ease-in-out forwards",
+        rotateAppear: "rotateAppear 1.8s ease-in-out forwards",
       },
     },
   },

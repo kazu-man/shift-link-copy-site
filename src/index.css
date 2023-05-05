@@ -11,6 +11,8 @@ body {
   font-family: "Pangram Pangram,Hiragino Sans,Meiryo,sans-serif";
 }
 
+
+
 @layer components {
   .clipped-text {
     color: rgba(0, 0, 0, 0);
