@@ -11,7 +11,9 @@ export default function SectionLayout({
 }: sectionLayoutProps) {
   return (
     <section
-      className={`h-screen w-screen text-white ${classes && classes.join(" ")}`}
+      className={`h-full w-screen text-white overflow-hidden px-[5%] ${
+        classes && classes.join(" ")
+      }`}
     >
       {children}
     </section>

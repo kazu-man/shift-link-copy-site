@@ -7,7 +7,7 @@ import system4 from "/img/system4.jpg";
 
 export default function Services() {
   return (
-    <SectionLayout>
+    <SectionLayout classes={["h-auto"]}>
       <Service
         title={["MULTIPLE", "ENVIRONMENTS"]}
         subTitle={["SHIFT LINKは様々なデジタル", "環境に柔軟に対応します。"]}

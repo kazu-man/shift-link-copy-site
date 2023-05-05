@@ -22,7 +22,15 @@ export default function Top() {
   }, [movingText.length]);
 
   return (
-    <SectionLayout classes={["flex", "justify-center", "items-center"]}>
+    <SectionLayout
+      classes={[
+        "flex",
+        "justify-center",
+        "items-center",
+        "overflow-hidden",
+        "h-screen",
+      ]}
+    >
       <div className="w-2/3 h-2/4 whitespace-nowrap flex items-center relative">
         <div className="text-[120px] font-bold overflow-visible ">
           <RotateAppearComponent>CONNECT</RotateAppearComponent>

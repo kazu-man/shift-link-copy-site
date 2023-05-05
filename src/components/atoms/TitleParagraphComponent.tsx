@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import ScrollInViewComponent from "./ScrollInViewComponent";
 
 type TitleParagraphComponentProps = {
@@ -27,12 +26,12 @@ export default function TitleParagraphComponent({
       {titleDiv}
       <ScrollInViewComponent delay={0.8}>
         <div className="text-lg">
-          {paragraph.map((text) => {
+          {paragraph.map((text, index) => {
             return (
-              <>
+              <span key={"paragraph_" + index}>
                 {text}
                 <br />
-              </>
+              </span>
             );
           })}
         </div>

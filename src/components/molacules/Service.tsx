@@ -1,10 +1,8 @@
 import { Canvas } from "@react-three/fiber";
-import SectionLayout from "../SectionLayout";
 import RotateAppearComponent from "../atoms/RotateAppearComponent";
 import ScrollInViewComponent from "../atoms/ScrollInViewComponent";
 import TitleParagraphComponent from "../atoms/TitleParagraphComponent";
 import WaveImageComponent from "../atoms/WaveImageComponent";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 type serviceProps = {
   title: string[];
@@ -41,7 +39,7 @@ export default function Service({
   });
 
   return (
-    <div className="flex justify-center relative m-auto my-36 w-full h-full max-w-6xl">
+    <div className="flex justify-center relative m-auto my-36 w-full h-screen max-w-6xl overflow-hidden">
       <div className="mx-auto absolute w-full h-full top-0 left-0">
         <Canvas style={{ background: "transparent" }}>
           <WaveImageComponent image={image} />

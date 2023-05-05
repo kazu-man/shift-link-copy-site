@@ -23,7 +23,7 @@ export default function About() {
   });
 
   return (
-    <SectionLayout classes={["relative"]}>
+    <SectionLayout classes={["relative", "h-screen"]}>
       <div className="text-[62px] font-bold absolute top-[25%] right-20">
         {content}
       </div>
