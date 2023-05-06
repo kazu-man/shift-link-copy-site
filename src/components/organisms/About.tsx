@@ -1,8 +1,8 @@
 import SectionLayout from "../layout/SectionLayout";
-import ScrollInViewComponent from "../atoms/ScrollInViewComponent";
+import BigMessage, { BigMessageLayout } from "../molecules/BigMessage";
 
 export default function About() {
-  const textList = [
+  const messageList = [
     "SHIFT LINKはリアルと",
     " バーチャル空間内に",
     "インターフェースを構築し",
@@ -10,23 +10,9 @@ export default function About() {
     "それを扱う人やサービスを",
     "つないでいきます。",
   ];
-
-  const content = textList.map((text, index) => {
-    return (
-      <ScrollInViewComponent
-        key={"about_" + index}
-        scrollConf={{ margin: "200px 0px" }}
-      >
-        {text}
-      </ScrollInViewComponent>
-    );
-  });
-
   return (
-    <SectionLayout classes={["relative", "h-screen"]}>
-      <div className="text-[62px] font-bold absolute top-[25%] right-20">
-        {content}
-      </div>
+    <SectionLayout classes={["relative"]}>
+      <BigMessage message={messageList} layout={BigMessageLayout.Right} />
     </SectionLayout>
   );
 }

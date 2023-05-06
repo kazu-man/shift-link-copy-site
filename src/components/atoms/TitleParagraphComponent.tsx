@@ -35,8 +35,11 @@ export default function TitleParagraphComponent({
       <div className="text-lg">
         {paragraph.map((text, index) => {
           return (
-            <ScrollInViewComponent delay={(index + 1) * 0.3}>
-              <span key={"paragraph_" + index}>
+            <ScrollInViewComponent
+              key={"paragraph_" + index}
+              delay={(index + 1) * 0.3}
+            >
+              <span>
                 {text}
                 <br />
               </span>

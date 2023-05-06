@@ -49,8 +49,8 @@ export default function ShowCase({
         muted
         autoPlay
         loop
-        webkit-playsinline
-        x5-playsinline
+        // webkit-playsinline
+        // x5-playsinline
         disableRemotePlayback
         preload="auto"
         className="z-[-1] w-full cursor-none"
