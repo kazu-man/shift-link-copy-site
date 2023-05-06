@@ -1,8 +1,9 @@
 import { Canvas } from "@react-three/fiber";
-import RotateAppearComponent from "../atoms/RotateAppearComponent";
-import ScrollInViewComponent from "../atoms/ScrollInViewComponent";
-import TitleParagraphComponent from "../atoms/TitleParagraphComponent";
+import TitleParagraphComponent, {
+  ParagraphPosition,
+} from "../atoms/TitleParagraphComponent";
 import WaveImageComponent from "../atoms/WaveImageComponent";
+import useMultiLineRotate from "../hooks/useMuliLineRotate";
 
 type serviceProps = {
   title: string[];
@@ -12,12 +13,6 @@ type serviceProps = {
   image: string;
 };
 
-export enum ParagraphPosition {
-  right = "absolute right-10 bottom-10",
-  center = "absolute translate-x-1/2 bottom-10",
-  left = "absolute left-10 bottom-10",
-}
-
 export default function Service({
   title,
   subTitle,
@@ -25,18 +20,7 @@ export default function Service({
   layout,
   image,
 }: serviceProps) {
-  const titleDiv = title.map((text, index) => {
-    return (
-      <ScrollInViewComponent
-        key={"service_" + index}
-        classes="text-[90px] font-bold inline-block"
-        delay={(index + 1) * 0.3}
-      >
-        <RotateAppearComponent>{text}</RotateAppearComponent>
-        <br />
-      </ScrollInViewComponent>
-    );
-  });
+  const { rotateTitle } = useMultiLineRotate(title);
 
   return (
     <div className="flex justify-center relative m-auto my-36 w-full h-screen max-w-6xl overflow-hidden">
@@ -46,7 +30,7 @@ export default function Service({
         </Canvas>
       </div>
       <div className="w-3/4 ">
-        {titleDiv}
+        {rotateTitle}
         <TitleParagraphComponent
           title={subTitle}
           classes={layout}

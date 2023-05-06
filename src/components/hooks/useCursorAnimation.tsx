@@ -7,6 +7,7 @@ export enum CursorType {
   Clip = "clip",
   Small = "small",
   Image = "image",
+  Video = "video",
 }
 type cursorVariantType = {
   [cursorType in CursorType]: {
@@ -25,7 +26,7 @@ export type cursorActionFuncType = (
 
 export default function useCursorCircle() {
   const [cursorText, setCursorText] = useState("");
-  const [cursorVariant, setCursorVariant] = useState("default");
+  const [cursorVariant, setCursorVariant] = useState(CursorType.Default);
   const [backgroundImage, setBackgroundImage] = useState<ReactNode>(null);
 
   const { ref, mouseXPosition, mouseYPosition } = useMousePosition();
@@ -89,6 +90,21 @@ export default function useCursorCircle() {
         mass: 0.6,
       },
     },
+    video: {
+      cursor: "none",
+      opacity: 1,
+      height: 150,
+      width: 150,
+      fontSize: "16px",
+      backgroundColor: "#ffffff",
+      x: mouseXPosition,
+      y: mouseYPosition,
+      borderRadius: "100%",
+      transition: {
+        type: "spring",
+        mass: 0.6,
+      },
+    },
   };
 
   const spring = {
@@ -103,8 +119,8 @@ export default function useCursorCircle() {
     wageImage?: ReactNode
   ) => {
     setCursorVariant(name);
-    if (title) setCursorText(title);
-    if (wageImage) setBackgroundImage(wageImage);
+    setCursorText(title ? title : "");
+    setBackgroundImage(wageImage ? wageImage : null);
   };
 
   return {
@@ -114,11 +130,12 @@ export default function useCursorCircle() {
       <>
         <motion.div
           variants={variants}
-          className=" absolute"
+          className="absolute z-50 flex items-center justify-center"
           animate={cursorVariant}
           transition={spring}
+          onMouseEnter={() => transformCursor(cursorVariant, cursorText)}
         >
-          <span className="cursorText">{cursorText}</span>
+          <span className="font-bold text-xs">{cursorText}</span>
         </motion.div>
         <motion.div
           animate={{

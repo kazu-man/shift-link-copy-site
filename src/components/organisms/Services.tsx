@@ -1,13 +1,14 @@
 import SectionLayout from "../layout/SectionLayout";
-import Service, { ParagraphPosition } from "../molecules/Service";
+import Service from "../molecules/Service";
 import system1 from "/img/system1.jpg";
 import system2 from "/img/system2.jpg";
 import system3 from "/img/system3.jpg";
 import system4 from "/img/system4.jpg";
+import { ParagraphPosition } from "../atoms/TitleParagraphComponent";
 
 export default function Services() {
   return (
-    <SectionLayout classes={["h-auto"]}>
+    <SectionLayout>
       <Service
         title={["MULTIPLE", "ENVIRONMENTS"]}
         subTitle={["SHIFT LINKは様々なデジタル", "環境に柔軟に対応します。"]}

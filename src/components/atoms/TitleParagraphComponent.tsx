@@ -5,6 +5,14 @@ type TitleParagraphComponentProps = {
   paragraph: string[];
   classes?: string;
 };
+
+export enum ParagraphPosition {
+  default = "",
+  right = "absolute right-10 bottom-10",
+  center = "absolute translate-x-1/2 bottom-10",
+  left = "absolute left-10 bottom-10",
+}
+
 export default function TitleParagraphComponent({
   title,
   paragraph,
@@ -14,7 +22,7 @@ export default function TitleParagraphComponent({
     return (
       <ScrollInViewComponent
         key={"titleParagraph_" + index}
-        delay={(index + 1) * 0.3}
+        delay={(index + 1) * 0.1}
       >
         <div className="text-[50px] font-bold">{text}</div>
       </ScrollInViewComponent>
@@ -24,18 +32,18 @@ export default function TitleParagraphComponent({
   return (
     <div className={classes}>
       {titleDiv}
-      <ScrollInViewComponent delay={0.8}>
-        <div className="text-lg">
-          {paragraph.map((text, index) => {
-            return (
+      <div className="text-lg">
+        {paragraph.map((text, index) => {
+          return (
+            <ScrollInViewComponent delay={(index + 1) * 0.3}>
               <span key={"paragraph_" + index}>
                 {text}
                 <br />
               </span>
-            );
-          })}
-        </div>
-      </ScrollInViewComponent>
+            </ScrollInViewComponent>
+          );
+        })}
+      </div>
     </div>
   );
 }
