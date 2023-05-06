@@ -1,6 +1,6 @@
-import { useState, useRef, ReactNode } from "react";
-import useMouse from "@react-hook/mouse-position";
+import { useState, ReactNode } from "react";
 import { motion } from "framer-motion";
+import useMousePosition from "./useMousePosition";
 
 export enum CursorType {
   Default = "default",
@@ -28,22 +28,7 @@ export default function useCursorCircle() {
   const [cursorVariant, setCursorVariant] = useState("default");
   const [backgroundImage, setBackgroundImage] = useState<ReactNode>(null);
 
-  const ref = useRef(null);
-  const mouse = useMouse(ref, {
-    enterDelay: 100,
-    leaveDelay: 100,
-  });
-
-  let mouseXPosition = 0;
-  let mouseYPosition = 0;
-
-  if (mouse.x !== null && mouse.x) {
-    mouseXPosition = mouse.x;
-  }
-
-  if (mouse.y !== null && mouse.y) {
-    mouseYPosition = mouse.y;
-  }
+  const { ref, mouseXPosition, mouseYPosition } = useMousePosition();
 
   const variants: cursorVariantType = {
     default: {
