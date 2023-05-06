@@ -1,4 +1,4 @@
-import SectionLayout from "../SectionLayout";
+import SectionLayout from "../layout/SectionLayout";
 import ScrollInViewComponent from "../atoms/ScrollInViewComponent";
 
 export default function About() {

@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-import { Dispatch } from "react";
 
 type plusButtonProps = {
   open: boolean;
-  setOpen: Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function PlusButton({ open, setOpen }: plusButtonProps) {
+export default function PlusButton({ open }: plusButtonProps) {
   const animations = {
     bar1: {
       animate: { opacity: 1, rotate: open ? 0 : 90 },
@@ -17,10 +15,7 @@ export default function PlusButton({ open, setOpen }: plusButtonProps) {
   };
 
   return (
-    <div
-      className="relative cursor-pointer w-[60px] h-[60px] m-[30px] mb-3"
-      onClick={() => setOpen(!open)}
-    >
+    <div className="relative cursor-pointer w-[60px] h-[60px] m-[30px] mb-3">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="60"
@@ -30,7 +25,7 @@ export default function PlusButton({ open, setOpen }: plusButtonProps) {
         style={{ rotate: "90deg" }}
       >
         <motion.line
-          initial={{ translateY: 31 }}
+          initial={{ translateY: 30 }}
           animate={animations.bar1.animate}
           transition={{
             duration: 0.5,
@@ -43,7 +38,7 @@ export default function PlusButton({ open, setOpen }: plusButtonProps) {
           stroke-width="3"
         />
         <motion.line
-          initial={{ translateY: 31 }}
+          initial={{ translateY: 30 }}
           animate={animations.bar2.animate}
           transition={{
             duration: 0.5,

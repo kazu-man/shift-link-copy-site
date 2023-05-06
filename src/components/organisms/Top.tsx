@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SectionLayout from "../SectionLayout";
+import SectionLayout from "../layout/SectionLayout";
 import RotateAppearComponent from "../atoms/RotateAppearComponent";
 
 export default function Top() {

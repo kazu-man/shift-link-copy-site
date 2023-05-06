@@ -1,25 +1,24 @@
-import { useState } from "react";
-import { CursorType, cursorAction } from "../hooks/useCursorAnimation";
+import { useContext, useState } from "react";
+import { CursorType } from "../hooks/useCursorAnimation";
+import { CursorContext } from "../../App";
 
 type borderMoveProps = {
   content: string;
-  cursorAction: cursorAction;
 };
 
-export default function BorderMoveComponent({
-  content,
-  cursorAction,
-}: borderMoveProps) {
+export default function BorderMoveComponent({ content }: borderMoveProps) {
   const [hover, setHover] = useState(false);
+  const transformCursor = useContext(CursorContext);
+
   return (
     <div
       className="align-middle inline-block mx-6 cursor-pointer overflow-hidden"
       onMouseEnter={() => {
-        cursorAction.transformCursor(CursorType.Small);
+        transformCursor(CursorType.Small);
         setHover(true);
       }}
       onMouseLeave={() => {
-        cursorAction.transformCursor(CursorType.Default);
+        transformCursor(CursorType.Default);
         setHover(false);
       }}
     >

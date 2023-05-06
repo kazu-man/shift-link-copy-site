@@ -1,5 +1,5 @@
-import SectionLayout from "../SectionLayout";
-import Service, { ParagraphPosition } from "../molacules/Service";
+import SectionLayout from "../layout/SectionLayout";
+import Service, { ParagraphPosition } from "../molecules/Service";
 import system1 from "/img/system1.jpg";
 import system2 from "/img/system2.jpg";
 import system3 from "/img/system3.jpg";

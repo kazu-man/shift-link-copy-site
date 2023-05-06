@@ -13,8 +13,12 @@ interface MyMaterial extends THREE.ShaderMaterial {
 
 type WaveImageComponentProps = {
   image: string;
+  persist?: boolean;
 };
-export default function WaveImageComponent({ image }: WaveImageComponentProps) {
+export default function WaveImageComponent({
+  image,
+  persist,
+}: WaveImageComponentProps) {
   const IMG_SRC = image;
 
   const imageRef = useRef<THREE.Mesh>(null);
@@ -48,7 +52,7 @@ export default function WaveImageComponent({ image }: WaveImageComponentProps) {
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
     transparent: true,
-    opacity: 0.3,
+    opacity: 0.5,
     // wireframe: true,
   });
 
@@ -61,7 +65,7 @@ export default function WaveImageComponent({ image }: WaveImageComponentProps) {
       const delta = state.clock.elapsedTime - lastElapsedTime.current;
       const material = (imageRef.current as THREE.Mesh).material as MyMaterial;
 
-      if (hover) {
+      if (hover || persist) {
         const applyTime = lastAppliedTime.current + delta;
         material.uniforms.uTime.value = applyTime;
 

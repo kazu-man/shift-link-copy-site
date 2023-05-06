@@ -1,25 +1,24 @@
-import { useState } from "react";
-import { CursorType, cursorAction } from "../hooks/useCursorAnimation";
+import { useContext, useState } from "react";
+import { CursorType } from "../hooks/useCursorAnimation";
+import { CursorContext } from "../../App";
 
 type bgHoverProps = {
   content: string;
-  cursorAction: cursorAction;
 };
 
-export default function BgHoverComponent({
-  content,
-  cursorAction,
-}: bgHoverProps) {
+export default function BgHoverComponent({ content }: bgHoverProps) {
   const [hover, setHover] = useState(false);
+  const transformCursor = useContext(CursorContext);
+
   return (
     <div
       className={`align-middle inline-block mx-6 cursor-pointer py-0 px-4 rounded-2xl border-2 relative my-0 overflow-hidden border-white border-separate`}
       onMouseEnter={() => {
-        cursorAction.transformCursor(CursorType.Small);
+        transformCursor(CursorType.Small);
         setHover(true);
       }}
       onMouseLeave={() => {
-        cursorAction.transformCursor(CursorType.Default);
+        transformCursor(CursorType.Default);
         setHover(false);
       }}
     >
