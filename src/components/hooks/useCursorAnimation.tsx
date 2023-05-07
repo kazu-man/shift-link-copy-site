@@ -1,6 +1,7 @@
 import { useState, ReactNode } from "react";
-import { motion } from "framer-motion";
+import { MotionValue, motion } from "framer-motion";
 import useMousePosition from "./useMousePosition";
+import { gradientColorType } from "./useTextColorChange";
 
 export enum CursorType {
   Default = "default",
@@ -9,10 +10,16 @@ export enum CursorType {
   Image = "image",
   Video = "video",
   Visit = "visit",
+  Contact = "contact",
 }
+
 type cursorVariantType = {
   [cursorType in CursorType]: {
-    [key: string]: string | number | { [key: string]: string | number };
+    [key: string]:
+      | string
+      | number
+      | { [key: string]: string | number }
+      | MotionValue<string>;
   };
 };
 
@@ -25,7 +32,7 @@ export type cursorActionType = {
 
 export type cursorActionFuncType = (prop: cursorActionType) => void;
 
-export default function useCursorCircle() {
+export default function useCursorCircle(color: gradientColorType) {
   const [cursorText, setCursorText] = useState<string[]>([]);
   const [cursorVariant, setCursorVariant] = useState(CursorType.Default);
   const [backgroundImage, setBackgroundImage] = useState<ReactNode>(null);
@@ -37,17 +44,22 @@ export default function useCursorCircle() {
 
   const { ref, mouseXPosition, mouseYPosition } = useMousePosition();
 
+  const bgColor =
+    cursorVariant === CursorType.Clip
+      ? color.reversedGradientColor
+      : color.gradientColor;
+
   const variants: cursorVariantType = {
     default: {
       opacity: 1,
       height: 30,
       width: 30,
       fontSize: "16px",
-      border: "2px white solid",
-      backgroundColor: "#ffffff",
+      borderWidth: "2px",
+      borderStyle: "solid",
+      borderRadius: "100%",
       x: mouseXPosition,
       y: mouseYPosition,
-      borderRadius: "100%",
       transition: {
         type: "spring",
         mass: 0.6,
@@ -55,12 +67,13 @@ export default function useCursorCircle() {
     },
     clip: {
       opacity: 1,
-      border: "2px white solid",
+      borderWidth: "2px",
+      borderStyle: "solid",
+      borderRadius: "100%",
       color: "#000",
       height: 30,
       width: 30,
       fontSize: "18px",
-      borderRadius: "100%",
       x: mouseXPosition,
       y: mouseYPosition,
       transition: {
@@ -73,7 +86,6 @@ export default function useCursorCircle() {
       height: 10,
       width: 10,
       fontSize: "16px",
-      backgroundColor: "#ffffff",
       x: mouseXPosition,
       y: mouseYPosition,
       borderRadius: "100%",
@@ -87,7 +99,6 @@ export default function useCursorCircle() {
       height: 10,
       width: 10,
       fontSize: "16px",
-      backgroundColor: "#ffffff",
       x: mouseXPosition,
       y: mouseYPosition,
       borderRadius: "100%",
@@ -102,7 +113,6 @@ export default function useCursorCircle() {
       height: 150,
       width: 150,
       fontSize: "16px",
-      backgroundColor: "#ffffff",
       x: mouseXPosition,
       y: mouseYPosition,
       borderRadius: "100%",
@@ -117,7 +127,20 @@ export default function useCursorCircle() {
       height: 150,
       width: 150,
       fontSize: "16px",
-      backgroundColor: "#ffffff",
+      x: mouseXPosition - 75,
+      y: mouseYPosition - 75,
+      borderRadius: "100%",
+      transition: {
+        type: "spring",
+        mass: 0.6,
+      },
+    },
+    contact: {
+      cursor: "pointer",
+      opacity: 1,
+      height: 150,
+      width: 150,
+      fontSize: "16px",
       x: mouseXPosition - 75,
       y: mouseYPosition - 75,
       borderRadius: "100%",
@@ -171,6 +194,11 @@ export default function useCursorCircle() {
             })
           }
           onClick={() => onClickFunc.funcExist && onClickFunc.func()}
+          style={{
+            backgroundColor: bgColor,
+            borderColor: color.gradientColor,
+            color: color.reversedGradientColor,
+          }}
         >
           {cursorText &&
             cursorText.map((text, index) => {

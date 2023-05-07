@@ -10,25 +10,35 @@ import { createContext } from "react";
 import ShowCases from "./components/organisms/ShowCases";
 import Vision from "./components/organisms/Vision";
 import Teams from "./components/organisms/Teams";
+import Contact from "./components/organisms/Contact";
+import useTextColorChange, {
+  gradientColorType,
+} from "./components/hooks/useTextColorChange";
 export const CursorContext = createContext<cursorActionFuncType>(
   {} as cursorActionFuncType
 );
+export const ScrollGradientColorContext = createContext<gradientColorType>(
+  {} as gradientColorType
+);
 
 function App() {
-  const { transformCursor, ref, cursorCircle } = useCursorCircle();
-
+  const gradientColor = useTextColorChange();
+  const { transformCursor, ref, cursorCircle } = useCursorCircle(gradientColor);
   return (
     <div ref={ref}>
-      {cursorCircle}
       <CursorContext.Provider value={transformCursor}>
-        <Header />
-        <Top />
-        <About />
-        <Services />
-        <ToggleAbout />
-        <ShowCases />
-        <Vision />
-        <Teams />
+        <ScrollGradientColorContext.Provider value={gradientColor}>
+          {cursorCircle}
+          <Header />
+          <Top />
+          <About />
+          <Services />
+          <ToggleAbout />
+          <ShowCases />
+          <Vision />
+          <Teams />
+          <Contact />
+        </ScrollGradientColorContext.Provider>
       </CursorContext.Provider>
     </div>
   );

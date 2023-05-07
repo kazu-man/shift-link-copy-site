@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { CursorContext } from "../../App";
+import { CursorContext, ScrollGradientColorContext } from "../../App";
 import BgHoverComponent from "../atoms/BgHoverComponent";
 import BorderMoveComponent from "../atoms/BorderHoverComponent";
 import { CursorType } from "../hooks/useCursorAnimation";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const menus = [
@@ -14,9 +15,13 @@ export default function Header() {
   ];
 
   const transformCursor = useContext(CursorContext);
+  const { gradientColor } = useContext(ScrollGradientColorContext);
 
   return (
-    <div className="text-white flex justify-between py-20 px-10 fixed top-0 w-full z-[99]">
+    <motion.div
+      className="text-white flex justify-between py-20 px-10 fixed top-0 w-full z-[99]"
+      style={{ color: gradientColor }}
+    >
       <div
         className="font-bold grid place-content-center cursor-pointer"
         onMouseEnter={() => transformCursor({ type: CursorType.Clip })}
@@ -40,6 +45,6 @@ export default function Header() {
       <div className="md:hidden">
         <BgHoverComponent content={"MENU"} />
       </div>
-    </div>
+    </motion.div>
   );
 }
