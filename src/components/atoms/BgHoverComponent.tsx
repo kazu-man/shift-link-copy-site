@@ -14,11 +14,11 @@ export default function BgHoverComponent({ content }: bgHoverProps) {
     <div
       className={`align-middle inline-block mx-6 cursor-pointer py-0 px-4 rounded-2xl border-2 relative my-0 overflow-hidden border-white border-separate`}
       onMouseEnter={() => {
-        transformCursor(CursorType.Small);
+        transformCursor({ type: CursorType.Small });
         setHover(true);
       }}
       onMouseLeave={() => {
-        transformCursor(CursorType.Default);
+        transformCursor({ type: CursorType.Default });
         setHover(false);
       }}
     >

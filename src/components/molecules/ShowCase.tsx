@@ -32,11 +32,11 @@ export default function ShowCase({
     if (!video) return;
     if (video.paused) {
       video.play();
-      transformCursor(CursorType.Video, "PAUSE");
+      transformCursor({ type: CursorType.Video, title: ["PAUSE"] });
       setPlay(true);
     } else {
       video.pause();
-      transformCursor(CursorType.Video, "PLAY");
+      transformCursor({ type: CursorType.Video, title: ["PLAY"] });
       setPlay(false);
     }
   };
@@ -55,9 +55,12 @@ export default function ShowCase({
         preload="auto"
         className="z-[-1] w-full cursor-none"
         onMouseEnter={() =>
-          transformCursor(CursorType.Video, play ? "PAUSE" : "PLAY")
+          transformCursor({
+            type: CursorType.Video,
+            title: play ? ["PAUSE"] : ["PLAY"],
+          })
         }
-        onMouseLeave={() => transformCursor(CursorType.Default)}
+        onMouseLeave={() => transformCursor({ type: CursorType.Default })}
         onClick={videoPlay}
       >
         <source src={video} type="video/mp4" />

@@ -1,8 +1,6 @@
 import { ReactNode, useContext } from "react";
 import { CursorType } from "../hooks/useCursorAnimation";
 import { CursorContext } from "../../App";
-import { motion } from "framer-motion";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 import ScrollInViewBorder from "../atoms/ScrollInViewBorderComponent";
 
 export type TeamsProps = {
@@ -10,6 +8,7 @@ export type TeamsProps = {
   content: string;
   subTitle: string;
   borderBottom?: boolean;
+  url: string;
 };
 
 export default function Team({
@@ -17,16 +16,26 @@ export default function Team({
   content,
   subTitle,
   borderBottom,
+  url,
 }: TeamsProps) {
   const transformCursor = useContext(CursorContext);
+  const visitUrl = () => {
+    window.open(url, "_blank");
+  };
 
   return (
     <div className="overflow-hidden">
       <ScrollInViewBorder />
       <div
         className={`w-full p-10 max-w-6xl m-auto cursor-pointer flex py-20`}
-        onMouseEnter={() => transformCursor(CursorType.Small)}
-        onMouseLeave={() => transformCursor(CursorType.Default)}
+        onMouseEnter={() =>
+          transformCursor({
+            type: CursorType.Visit,
+            title: ["VISIT", "WEBSITE"],
+            clickFunc: visitUrl,
+          })
+        }
+        onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       >
         <div className="w-[30%] flex items-center">
           <div className="flex flex-col justify-between">

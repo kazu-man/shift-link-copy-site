@@ -24,15 +24,16 @@ export default function ToggleComponent({
     <div
       className="w-full py-5 px-10 max-w-6xl m-auto cursor-pointer"
       onMouseEnter={() =>
-        transformCursor(
-          CursorType.Image,
-          "",
-          <Canvas style={{ background: "transparent" }}>
-            <WaveImageComponent image={image} persist={true} />
-          </Canvas>
-        )
+        transformCursor({
+          type: CursorType.Image,
+          wageImage: (
+            <Canvas style={{ background: "transparent" }}>
+              <WaveImageComponent image={image} persist={true} />
+            </Canvas>
+          ),
+        })
       }
-      onMouseLeave={() => transformCursor(CursorType.Default)}
+      onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       onClick={() => setOpen(!open)}
     >
       <div className="flex justify-between pb-10">

@@ -14,11 +14,11 @@ export default function BorderMoveComponent({ content }: borderMoveProps) {
     <div
       className="align-middle inline-block mx-6 cursor-pointer overflow-hidden"
       onMouseEnter={() => {
-        transformCursor(CursorType.Small);
+        transformCursor({ type: CursorType.Small });
         setHover(true);
       }}
       onMouseLeave={() => {
-        transformCursor(CursorType.Default);
+        transformCursor({ type: CursorType.Default });
         setHover(false);
       }}
     >

@@ -8,26 +8,32 @@ export enum CursorType {
   Small = "small",
   Image = "image",
   Video = "video",
+  Visit = "visit",
 }
 type cursorVariantType = {
   [cursorType in CursorType]: {
     [key: string]: string | number | { [key: string]: string | number };
   };
 };
-export type cursorAction = {
-  [key: string]: (type: CursorType, title?: string) => void;
+
+export type cursorActionType = {
+  type: CursorType;
+  title?: string[];
+  wageImage?: ReactNode;
+  clickFunc?: () => void;
 };
 
-export type cursorActionFuncType = (
-  type: CursorType,
-  title?: string,
-  wageImage?: ReactNode
-) => void;
+export type cursorActionFuncType = (prop: cursorActionType) => void;
 
 export default function useCursorCircle() {
-  const [cursorText, setCursorText] = useState("");
+  const [cursorText, setCursorText] = useState<string[]>([]);
   const [cursorVariant, setCursorVariant] = useState(CursorType.Default);
   const [backgroundImage, setBackgroundImage] = useState<ReactNode>(null);
+  const [onClickFunc, setOnClickFunc] = useState<{
+    funcExist: boolean;
+    func: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  }>({ funcExist: false, func: null! });
 
   const { ref, mouseXPosition, mouseYPosition } = useMousePosition();
 
@@ -105,6 +111,21 @@ export default function useCursorCircle() {
         mass: 0.6,
       },
     },
+    visit: {
+      cursor: "pointer",
+      opacity: 1,
+      height: 150,
+      width: 150,
+      fontSize: "16px",
+      backgroundColor: "#ffffff",
+      x: mouseXPosition - 75,
+      y: mouseYPosition - 75,
+      borderRadius: "100%",
+      transition: {
+        type: "spring",
+        mass: 0.6,
+      },
+    },
   };
 
   const spring = {
@@ -113,14 +134,23 @@ export default function useCursorCircle() {
     damping: 28,
   };
 
-  const transformCursor: cursorActionFuncType = (
-    name: CursorType,
-    title?: string,
-    wageImage?: ReactNode
-  ) => {
-    setCursorVariant(name);
-    setCursorText(title ? title : "");
+  const transformCursor: cursorActionFuncType = ({
+    type,
+    title,
+    wageImage,
+    clickFunc,
+  }: cursorActionType) => {
+    setCursorVariant(type);
+    setCursorText(title ? title : []);
     setBackgroundImage(wageImage ? wageImage : null);
+    if (clickFunc) {
+      setOnClickFunc({ funcExist: true, func: clickFunc });
+    } else {
+      setOnClickFunc({
+        ...onClickFunc,
+        funcExist: false,
+      });
+    }
   };
 
   return {
@@ -130,12 +160,26 @@ export default function useCursorCircle() {
       <>
         <motion.div
           variants={variants}
-          className="absolute z-50 flex items-center justify-center"
+          className="absolute z-50 flex flex-col items-center justify-center"
           animate={cursorVariant}
           transition={spring}
-          onMouseEnter={() => transformCursor(cursorVariant, cursorText)}
+          onMouseEnter={() =>
+            transformCursor({
+              type: cursorVariant,
+              title: cursorText,
+              clickFunc: onClickFunc.func,
+            })
+          }
+          onClick={() => onClickFunc.funcExist && onClickFunc.func()}
         >
-          <span className="font-bold text-xs">{cursorText}</span>
+          {cursorText &&
+            cursorText.map((text, index) => {
+              return (
+                <div key={"cursorBg_" + index} className="font-bold text-xs">
+                  {text}
+                </div>
+              );
+            })}
         </motion.div>
         <motion.div
           animate={{

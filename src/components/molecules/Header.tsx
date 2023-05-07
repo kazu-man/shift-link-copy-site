@@ -19,8 +19,8 @@ export default function Header() {
     <div className="text-white flex justify-between py-20 px-10 fixed top-0 w-full z-[99]">
       <div
         className="font-bold grid place-content-center cursor-pointer"
-        onMouseEnter={() => transformCursor(CursorType.Clip)}
-        onMouseLeave={() => transformCursor(CursorType.Default)}
+        onMouseEnter={() => transformCursor({ type: CursorType.Clip })}
+        onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       >
         SHIFT LINK
       </div>

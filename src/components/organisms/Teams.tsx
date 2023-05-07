@@ -11,6 +11,7 @@ export default function Teams() {
       subTitle: "Producing & Creative/Art Direction",
       content:
         "The Shiftは東京を拠点としたクリエイティブコレクティブです。新しい視点やデザイン課題解決を提供します。SHIFT LINKの企画、プロデュース、運営、アートディレクション、デザインを担当。",
+      url: "https://theshift.tokyo/",
     },
     {
       title: (
@@ -26,6 +27,7 @@ export default function Teams() {
       subTitle: "Hardware & Software Development",
       content:
         "aircordはデジタルコンテンツのシステムデザインや開発、テクニカルプロデュース・ディレクションを行うクリエイティブスタジオです。SHIFT LINKのテクニカルディレクション、開発全般を担当。",
+      url: "https://aircord.co.jp/",
       borderBottom: true,
     },
   ];
