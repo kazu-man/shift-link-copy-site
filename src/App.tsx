@@ -9,6 +9,7 @@ import ToggleAbout from "./components/organisms/ToggleAbout";
 import { createContext } from "react";
 import ShowCases from "./components/organisms/ShowCases";
 import Vision from "./components/organisms/Vision";
+import Teams from "./components/organisms/Teams";
 export const CursorContext = createContext<cursorActionFuncType>(
   {} as cursorActionFuncType
 );
@@ -27,6 +28,7 @@ function App() {
         <ToggleAbout />
         <ShowCases />
         <Vision />
+        <Teams />
       </CursorContext.Provider>
     </div>
   );

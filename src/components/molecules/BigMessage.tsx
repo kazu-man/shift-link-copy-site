@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ScrollInViewComponent from "../atoms/ScrollInViewComponent";
+import ScrollInViewComponent from "../atoms/ScrollInViewAppearBottomComponent";
 
 type bigMessageProps = {
   message: string[];

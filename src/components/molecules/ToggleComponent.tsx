@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import PlusButton from "../atoms/PlusButton";
 import { motion } from "framer-motion";
-import { CursorType, cursorAction } from "../hooks/useCursorAnimation";
+import { CursorType } from "../hooks/useCursorAnimation";
 import { CursorContext } from "../../App";
 import WaveImageComponent from "../atoms/WaveImageComponent";
 import { Canvas } from "@react-three/fiber";
@@ -10,7 +10,6 @@ export type toggleProps = {
   title: string;
   content: string;
   image: string;
-  cursorAction?: cursorAction;
 };
 
 export default function ToggleComponent({

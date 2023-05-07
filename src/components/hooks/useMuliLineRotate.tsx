@@ -1,5 +1,5 @@
 import RotateAppearComponent from "../atoms/RotateAppearComponent";
-import ScrollInViewComponent from "../atoms/ScrollInViewComponent";
+import ScrollInViewComponent from "../atoms/ScrollInViewAppearBottomComponent";
 
 export default function useMultiLineRotate(titles: string[]) {
   const rotateTitle = titles.map((text, index) => {

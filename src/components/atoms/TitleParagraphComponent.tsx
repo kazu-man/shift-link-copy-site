@@ -1,4 +1,4 @@
-import ScrollInViewComponent from "./ScrollInViewComponent";
+import ScrollInViewComponent from "./ScrollInViewAppearBottomComponent";
 
 type TitleParagraphComponentProps = {
   title: string[];
