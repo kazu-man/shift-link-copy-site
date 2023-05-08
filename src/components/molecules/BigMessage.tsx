@@ -32,7 +32,7 @@ export default function BigMessage({ message, layout }: bigMessageProps) {
   return (
     <div className={`relative `} style={{ height: sectionHeight + "px" }}>
       <div
-        className={`text-[60px] font-bold w-auto h-full absolute top-10 ${layout}`}
+        className={`text-[6vw] md:text-[60px] font-bold w-auto h-full absolute top-10 ${layout}`}
       >
         {content}
       </div>

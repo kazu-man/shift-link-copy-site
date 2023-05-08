@@ -24,13 +24,14 @@ export default function WaveImageComponent({
   const imageRef = useRef<THREE.Mesh>(null);
   const tex = useLoader(THREE.TextureLoader, IMG_SRC);
   const img = useLoader(THREE.ImageLoader, IMG_SRC);
-  const PLANE_SIZE = 6.0;
+  const PLANE_WIDTH = 6.0;
+  const PLANE_HEIGHT = 4.0;
 
   const [hover, setHover] = useState(false);
 
   const material = new THREE.ShaderMaterial({
     uniforms: {
-      uPlaneSize: { value: new THREE.Vector2(PLANE_SIZE, PLANE_SIZE) },
+      uPlaneSize: { value: new THREE.Vector2(PLANE_WIDTH, PLANE_HEIGHT) },
       uImageSize: { value: new THREE.Vector2(img.width, img.height) },
       uTexture: { value: tex },
       uTime: { value: 0 },
@@ -52,7 +53,7 @@ export default function WaveImageComponent({
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.7,
     // wireframe: true,
   });
 
@@ -91,7 +92,7 @@ export default function WaveImageComponent({
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
     >
-      <planeGeometry args={[PLANE_SIZE, PLANE_SIZE, 64, 64]} />
+      <planeGeometry args={[PLANE_WIDTH, PLANE_HEIGHT, 64, 64]} />
 
       {/* なぜかこの書き方だとマウスのアニメーションが干渉して動かない */}
       {/* <shaderMaterial

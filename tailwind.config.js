@@ -2,7 +2,17 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      "md-down": { max: "767px" },
+    },
     extend: {
+      fontSize: {
+        mainTitle: "12vw", // 30px
+        title: "8vw", // 30px
+      },
       keyframes: {
         moveTopText: {
           "0%": {

@@ -6,7 +6,7 @@ export default function useMultiLineRotate(titles: string[]) {
     return (
       <ScrollInViewComponent
         key={"service_" + index}
-        classes="text-[90px] font-bold inline-block"
+        classes="text-title md:text-[90px] font-bold block"
         delay={(index + 1) * 0.3}
       >
         <RotateAppearComponent>{text}</RotateAppearComponent>

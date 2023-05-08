@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <motion.div
-      className="text-white flex justify-between py-20 px-10 fixed top-0 w-full z-[99]"
+      className="text-white flex justify-between pt-10 md:pt-20 px-2 md:px-10 fixed top-0 w-full z-[99] text-xs md:text-base"
       style={{ color: gradientColor }}
     >
       <div
@@ -31,7 +31,7 @@ export default function Header() {
         SHIFT LINK
       </div>
 
-      <div className="hidden md:block">
+      <div className="hidden w-1/2 md:flex justify-between">
         {menus.map((el, index) => {
           if (el.circle) {
             return (

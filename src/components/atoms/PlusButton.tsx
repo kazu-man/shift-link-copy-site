@@ -24,11 +24,11 @@ export default function PlusButton({ open }: plusButtonProps) {
 
   return (
     <div
-      className="relative cursor-pointer w-[100px] h-[100px] mb-3 flex items-center justify-center"
+      className="relative cursor-pointer w-[8vw] h-[8vw] md:w-[100px] md:h-[100px] md:mb-3 flex items-center justify-center"
       ref={ref}
     >
       <motion.div
-        className="absolute"
+        className="absolute md:p-5"
         animate={{
           x: plusPosition.x,
           y: plusPosition.y,
@@ -40,8 +40,8 @@ export default function PlusButton({ open }: plusButtonProps) {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="60"
-          height="60"
+          width="100%"
+          height="100%"
           viewBox="0 0 60 60"
           style={{ rotate: "90deg" }}
         >
@@ -52,11 +52,10 @@ export default function PlusButton({ open }: plusButtonProps) {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            strokeWidth={4}
+            strokeWidth={"2%"}
             x2="60"
             fill="none"
             stroke="#fff"
-            stroke-width="3"
           />
           <motion.line
             initial={{ translateY: 30 }}
@@ -65,11 +64,10 @@ export default function PlusButton({ open }: plusButtonProps) {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            strokeWidth={4}
+            strokeWidth={"2%"}
             x2="60"
             fill="none"
             stroke="#fff"
-            stroke-width="3"
           />
         </svg>
       </motion.div>

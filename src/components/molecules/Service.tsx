@@ -23,20 +23,27 @@ export default function Service({
   const { rotateTitle } = useMultiLineRotate(title);
 
   return (
-    <div className="flex justify-center relative m-auto my-36 w-full h-screen max-w-6xl overflow-hidden">
-      <div className="mx-auto absolute w-full h-full top-0 left-0">
-        <Canvas style={{ background: "transparent" }}>
-          <WaveImageComponent image={image} />
-        </Canvas>
+    <div className="mb-32 md:mb-64">
+      <div className="flex justify-center relative m-auto my-20 w-full h-[350px] md:h-screen max-w-6xl">
+        <div className="mx-auto absolute w-full h-full top-20 left-0 ">
+          <Canvas
+            style={{ background: "transparent" }}
+            camera={{
+              fov: 50,
+            }}
+          >
+            <WaveImageComponent image={image} />
+          </Canvas>
+        </div>
+        <div className="md:w-3/4 w-full absolute md:-left-20">
+          {rotateTitle}
+        </div>
       </div>
-      <div className="w-3/4 ">
-        {rotateTitle}
-        <TitleParagraphComponent
-          title={subTitle}
-          classes={layout}
-          paragraph={paragraph}
-        ></TitleParagraphComponent>
-      </div>
+      <TitleParagraphComponent
+        title={subTitle}
+        layout={layout}
+        paragraph={paragraph}
+      ></TitleParagraphComponent>
     </div>
   );
 }

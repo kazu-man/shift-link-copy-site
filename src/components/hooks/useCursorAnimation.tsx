@@ -107,8 +107,8 @@ export default function useCursorCircle(color: gradientColorType) {
       height: 10,
       width: 10,
       fontSize: "16px",
-      x: mouseXPosition,
-      y: mouseYPosition,
+      x: mouseXPosition + 10,
+      y: mouseYPosition + 10,
       borderRadius: "100%",
       transition: {
         type: "spring",
@@ -188,10 +188,10 @@ export default function useCursorCircle(color: gradientColorType) {
     transformCursor,
     ref,
     cursorCircle: (
-      <>
+      <div className="hidden md:block">
         <motion.div
           variants={variants}
-          className="absolute z-50 flex flex-col items-center justify-center"
+          className="absolute z-50 flex-col items-center justify-center flex"
           animate={cursorVariant}
           transition={spring}
           onMouseEnter={() =>
@@ -199,6 +199,7 @@ export default function useCursorCircle(color: gradientColorType) {
               type: cursorVariant,
               title: cursorText,
               clickFunc: onClickFunc.func,
+              wageImage: backgroundImage,
             })
           }
           onMouseMove={() =>
@@ -206,6 +207,7 @@ export default function useCursorCircle(color: gradientColorType) {
               type: cursorVariant,
               title: cursorText,
               clickFunc: onClickFunc.func,
+              wageImage: backgroundImage,
             })
           }
           onClick={() => onClickFunc.funcExist && onClickFunc.func()}
@@ -242,7 +244,7 @@ export default function useCursorCircle(color: gradientColorType) {
         >
           {backgroundImage}
         </motion.div>
-      </>
+      </div>
     ),
   };
 }

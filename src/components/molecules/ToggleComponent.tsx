@@ -22,7 +22,7 @@ export default function ToggleComponent({
 
   return (
     <div
-      className="w-full py-5 px-10 max-w-6xl m-auto cursor-pointer"
+      className="w-full py-5 px-5 m-auto max-w-7xl cursor-pointer"
       onMouseEnter={() =>
         transformCursor({
           type: CursorType.Image,
@@ -46,8 +46,10 @@ export default function ToggleComponent({
       onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       onClick={() => setOpen(!open)}
     >
-      <div className="flex justify-between pb-10">
-        <div className="font-bold text-[40px] flex items-center">{title}</div>
+      <div className="flex justify-between pb-10 md:pb-20">
+        <div className="font-bold text-[3vw] md:text-[40px] flex items-center">
+          {title}
+        </div>
         <PlusButton open={open} />
       </div>
       <motion.div
@@ -58,7 +60,21 @@ export default function ToggleComponent({
         }}
         className={`w-full overflow-hidden border-b-2 ${!open ? "h-0" : ""}`}
       >
-        <p className="w-1/2 pb-20 text-xl">{content}</p>
+        <div className="w-full md:w-1/2 pb-10 md:pb-20 text-[1vw] md:text-xl">
+          {content}
+          <div className="md:hidden pl-10 pt-10">
+            <Canvas
+              style={{
+                background: "transparent",
+              }}
+              camera={{
+                fov: 50,
+              }}
+            >
+              <WaveImageComponent image={image} persist={false} />
+            </Canvas>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

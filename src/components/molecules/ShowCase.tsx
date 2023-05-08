@@ -42,8 +42,8 @@ export default function ShowCase({
   };
   return (
     <div className="relative m-auto my-36 w-full overflow-hidden">
-      <div className="max-w-6xl px-10">{rotateTitle}</div>
-      <div className="m-5 mx-10 text-lg font-bold">{videoTitle}</div>
+      <div className="max-w-6xl">{rotateTitle}</div>
+      <div className="my-5 text-lg font-bold">{videoTitle}</div>
       <video
         ref={videoRef}
         muted
@@ -73,10 +73,10 @@ export default function ShowCase({
         <p>Your browser doesn't support HTML5 video.</p>
       </video>
 
-      <div className="max-w-6xl px-10 pt-5">
+      <div className="max-w-6xl pt-5">
         <TitleParagraphComponent
           title={subTitle}
-          classes={layout}
+          layout={layout}
           paragraph={paragraph}
         ></TitleParagraphComponent>
       </div>

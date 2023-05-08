@@ -3,20 +3,20 @@ import ScrollInViewComponent from "./ScrollInViewAppearBottomComponent";
 type TitleParagraphComponentProps = {
   title: string[];
   paragraph: string[];
-  classes?: string;
+  layout?: string;
 };
 
 export enum ParagraphPosition {
   default = "",
-  right = "absolute right-10 bottom-10",
-  center = "absolute translate-x-1/2 bottom-10",
-  left = "absolute left-10 bottom-10",
+  right = "justify-end",
+  center = "justify-center",
+  left = "justify-start",
 }
 
 export default function TitleParagraphComponent({
   title,
   paragraph,
-  classes,
+  layout,
 }: TitleParagraphComponentProps) {
   const titleDiv = title.map((text, index) => {
     return (
@@ -24,28 +24,30 @@ export default function TitleParagraphComponent({
         key={"titleParagraph_" + index}
         delay={(index + 1) * 0.1}
       >
-        <div className="text-[50px] font-bold">{text}</div>
+        <div className="text-[5.5vw] md:text-[50px] font-bold">{text}</div>
       </ScrollInViewComponent>
     );
   });
 
   return (
-    <div className={classes}>
-      {titleDiv}
-      <div className="text-lg">
-        {paragraph.map((text, index) => {
-          return (
-            <ScrollInViewComponent
-              key={"paragraph_" + index}
-              delay={(index + 1) * 0.3}
-            >
-              <span>
-                {text}
-                <br />
-              </span>
-            </ScrollInViewComponent>
-          );
-        })}
+    <div className={` m-auto w-full max-w-6xl flex ${layout}`}>
+      <div>
+        <div className="mb-3">{titleDiv}</div>
+        <div>
+          {paragraph.map((text, index) => {
+            return (
+              <ScrollInViewComponent
+                key={"paragraph_" + index}
+                delay={(index + 1) * 0.3}
+              >
+                <span className="text-md md:text-[25px] md:leading-loose">
+                  {text}
+                  <br />
+                </span>
+              </ScrollInViewComponent>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
