@@ -3,7 +3,7 @@ import TitleParagraphComponent, {
   ParagraphPosition,
 } from "../atoms/TitleParagraphComponent";
 import WaveImageComponent from "../atoms/WaveImageComponent";
-import useMultiLineRotate from "../hooks/useMuliLineRotate";
+import MultiLineRotate from "./MultiLineRotate";
 
 type serviceProps = {
   title: string[];
@@ -20,8 +20,6 @@ export default function Service({
   layout,
   image,
 }: serviceProps) {
-  const { rotateTitle } = useMultiLineRotate(title);
-
   return (
     <div className="mb-32 md:mb-64">
       <div className="flex justify-center relative m-auto my-20 w-full h-[350px] md:h-screen max-w-6xl">
@@ -36,7 +34,7 @@ export default function Service({
           </Canvas>
         </div>
         <div className="md:w-3/4 w-full absolute md:-left-20">
-          {rotateTitle}
+          <MultiLineRotate titles={title} />
         </div>
       </div>
       <TitleParagraphComponent

@@ -3,8 +3,8 @@ import { CursorContext } from "../../App";
 import TitleParagraphComponent, {
   ParagraphPosition,
 } from "../atoms/TitleParagraphComponent";
-import useMultiLineRotate from "../hooks/useMuliLineRotate";
 import { CursorType } from "../hooks/useCursorAnimation";
+import MultiLineRotate from "./MultiLineRotate";
 
 type showCaseProps = {
   title: string[];
@@ -23,7 +23,6 @@ export default function ShowCase({
   video,
   videoTitle,
 }: showCaseProps) {
-  const { rotateTitle } = useMultiLineRotate(title);
   const transformCursor = useContext(CursorContext);
   const [play, setPlay] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -42,14 +41,16 @@ export default function ShowCase({
   };
   return (
     <div className="relative m-auto my-36 w-full overflow-hidden">
-      <div className="max-w-6xl">{rotateTitle}</div>
+      <div className="max-w-6xl">
+        <MultiLineRotate titles={title} />
+      </div>
       <div className="my-5 text-lg font-bold">{videoTitle}</div>
       <video
         ref={videoRef}
         muted
         autoPlay
         loop
-        // webkit-playsinline
+        playsInline
         // x5-playsinline
         disableRemotePlayback
         preload="auto"

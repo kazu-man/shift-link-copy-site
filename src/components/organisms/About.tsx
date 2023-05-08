@@ -11,7 +11,9 @@ export default function About() {
     "つないでいきます。",
   ];
   return (
-    <SectionLayout classes={["relative"]}>
+    <SectionLayout
+      classes={["relative", "text-[6vw] md:text-[80px] mb-[50%] md:mb-[20%]"]}
+    >
       <BigMessage message={messageList} layout={BigMessageLayout.Right} />
     </SectionLayout>
   );

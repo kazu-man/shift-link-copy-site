@@ -22,7 +22,7 @@ export default function TitleParagraphComponent({
     return (
       <ScrollInViewComponent
         key={"titleParagraph_" + index}
-        delay={(index + 1) * 0.1}
+        delay={(index / 2) * 0.1}
       >
         <div className="text-[5.5vw] md:text-[50px] font-bold">{text}</div>
       </ScrollInViewComponent>

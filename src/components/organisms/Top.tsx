@@ -34,7 +34,6 @@ export default function Top() {
       <div className="w-full md:w-2/3 h-2/4 whitespace-nowrap flex items-center relative">
         <div className="text-mainTitle md:text-[140px] font-bold overflow-visible ">
           <RotateAppearComponent>CONNECT</RotateAppearComponent>
-          <br />
 
           <div className="leading-none flex justify-center flex-col md:flex-row">
             <RotateAppearComponent classes={["pr-16", "mb-2"]}>
@@ -47,6 +46,7 @@ export default function Top() {
                     <span
                       key={"top_" + index}
                       className={`inline-block clipped-text animate-moveTopText translate-y-full`}
+                      style={{ WebkitTextStrokeWidth: "1px" }}
                     >
                       {movingText[index]}
                     </span>
@@ -56,7 +56,7 @@ export default function Top() {
             </div>
           </div>
         </div>
-        <div className="absolute md-down:top-0 md:bottom-0 md:right-0 text-sm pt-10">
+        <div className="absolute md-down:top-0 md:bottom-0 md:right-0 text-sm pt-3">
           <p>
             Shift LINK aims to connect today’s people <br />
             to tomorrow's experiences through

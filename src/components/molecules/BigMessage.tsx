@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ScrollInViewComponent from "../atoms/ScrollInViewAppearBottomComponent";
 
 type bigMessageProps = {
@@ -6,36 +5,25 @@ type bigMessageProps = {
   layout: BigMessageLayout;
 };
 export enum BigMessageLayout {
-  Left = "left-[5%]",
-  Right = "right-[5%]",
+  Left = "justify-start",
+  Right = "justify-end",
 }
 
 export default function BigMessage({ message, layout }: bigMessageProps) {
-  const [sectionHeight, setSectionHeight] = useState(0);
-
-  useEffect(() => {
-    //少し長めに取っておく
-    setSectionHeight(message.length * 100);
-  }, [message.length, setSectionHeight]);
-
   const content = message.map((text, index) => {
     return (
       <ScrollInViewComponent
         key={"BigMessage_" + index + "_" + text}
-        scrollConf={{ margin: "200px 0px" }}
+        delay={(index / 3) * 0.3}
       >
-        <span>{text}</span>
+        <div>{text}</div>
       </ScrollInViewComponent>
     );
   });
 
   return (
-    <div className={`relative `} style={{ height: sectionHeight + "px" }}>
-      <div
-        className={`text-[6vw] md:text-[60px] font-bold w-auto h-full absolute top-10 ${layout}`}
-      >
-        {content}
-      </div>
+    <div className={`md:flex md:px-20 items-center ${layout}`}>
+      <div className={`font-bold w-auto h-full ${layout}`}>{content}</div>
     </div>
   );
 }

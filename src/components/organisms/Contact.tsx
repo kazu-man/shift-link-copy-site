@@ -12,7 +12,7 @@ export default function Contact() {
   const transformCursor = useContext(CursorContext);
 
   return (
-    <SectionLayout classes={["px-[0%]", "w-screen"]}>
+    <SectionLayout classes={["w-screen"]} pxNon={true}>
       <motion.div
         className="bg-white text-black"
         style={{ opacity: scrollYProgress, color: gradientColor }}
@@ -54,7 +54,7 @@ export default function Contact() {
                 className="text-mainTitle md:text-[140px] font-bold clipped-text flex items-center"
                 style={{
                   WebkitTextStrokeColor: "black",
-                  WebkitTextStrokeWidth: "2px",
+                  WebkitTextStrokeWidth: "1px",
                 }}
               >
                 WITH US

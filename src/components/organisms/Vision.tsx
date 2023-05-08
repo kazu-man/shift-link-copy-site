@@ -3,7 +3,7 @@ import BigMessage, { BigMessageLayout } from "../molecules/BigMessage";
 
 export default function Vision() {
   const messageList = [
-    "SHIFT LINKはリアルと",
+    "SHIFT LINKは",
     "リアルとバーチャル",
     "どちらの環境でも、",
     "テクノロジーと",
@@ -33,7 +33,9 @@ export default function Vision() {
         </svg>
         OUR FUTURE VISION
       </div>
-      <BigMessage message={messageList} layout={BigMessageLayout.Left} />
+      <div className="text-[8vw] md:text-[80px]">
+        <BigMessage message={messageList} layout={BigMessageLayout.Left} />
+      </div>
     </SectionLayout>
   );
 }

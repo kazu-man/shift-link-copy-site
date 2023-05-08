@@ -60,7 +60,7 @@ export default function ToggleComponent({
         }}
         className={`w-full overflow-hidden border-b-2 ${!open ? "h-0" : ""}`}
       >
-        <div className="w-full md:w-1/2 pb-10 md:pb-20 text-[1vw] md:text-xl">
+        <div className="w-full md:w-1/2 pb-10 md:pb-20 text-[3vw] md:text-xl">
           {content}
           <div className="md:hidden pl-10 pt-10">
             <Canvas

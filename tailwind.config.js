@@ -33,7 +33,7 @@ export default {
             opacity: 0,
           },
           "20%": {
-            transform: "rotateX(90deg) rotateY(10deg)",
+            transform: "rotateX(90deg) rotateY(5deg)",
           },
           "80%": {
             transform: "rotateX(0) rotateY(0) ",

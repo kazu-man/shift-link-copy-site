@@ -1,10 +1,9 @@
+import RotateAppearComponent from "../atoms/RotateAppearComponent";
 import ScrollInViewComponent from "../atoms/ScrollInViewAppearBottomComponent";
-import useMultiLineRotate from "../hooks/useMuliLineRotate";
 import SectionLayout from "../layout/SectionLayout";
 import Team, { TeamsProps } from "../molecules/Team";
 
 export default function Teams() {
-  const { rotateTitle } = useMultiLineRotate(["TEAMS"]);
   const teams: TeamsProps[] = [
     {
       title: "THE SHIFT",
@@ -36,7 +35,9 @@ export default function Teams() {
   return (
     <SectionLayout>
       <div className="relative m-auto my-36 w-full overflow-hidden md:px-10">
-        <div className="max-w-6xl">{rotateTitle}</div>
+        <div className="max-w-6xl">
+          <RotateAppearComponent>TEAMS</RotateAppearComponent>
+        </div>
         <ScrollInViewComponent>
           <div className="pt-10 pb-16 md:pb-36 text-sm md:text-2xl">
             We'll continue to pursue new possibilities in <br />

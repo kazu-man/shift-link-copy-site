@@ -24,7 +24,7 @@ export default function ScrollInViewComponent({
     once: true,
     ...scrollConf,
   });
-  const defaultDelay = 0.3;
+  const defaultDelay = 0;
   const fadeUpStyle = {
     transform: isInView ? "none" : "translateY(30px)",
     opacity: isInView ? 1 : 0,
