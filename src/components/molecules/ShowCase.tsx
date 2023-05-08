@@ -60,6 +60,12 @@ export default function ShowCase({
             title: play ? ["PAUSE"] : ["PLAY"],
           })
         }
+        onMouseMove={() =>
+          transformCursor({
+            type: CursorType.Video,
+            title: play ? ["PAUSE"] : ["PLAY"],
+          })
+        }
         onMouseLeave={() => transformCursor({ type: CursorType.Default })}
         onClick={videoPlay}
       >

@@ -11,11 +11,15 @@ export default function BorderMoveComponent({ content }: borderMoveProps) {
   const [hover, setHover] = useState(false);
   const transformCursor = useContext(CursorContext);
   const { gradientColor } = useContext(ScrollGradientColorContext);
-  
+
   return (
     <div
       className="align-middle inline-block mx-6 cursor-pointer overflow-hidden"
       onMouseEnter={() => {
+        transformCursor({ type: CursorType.Small });
+        setHover(true);
+      }}
+      onMouseMove={() => {
         transformCursor({ type: CursorType.Small });
         setHover(true);
       }}

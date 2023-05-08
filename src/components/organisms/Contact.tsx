@@ -34,6 +34,12 @@ export default function Contact() {
                   title: ["EMAIL US"],
                 })
               }
+              onMouseMove={() =>
+                transformCursor({
+                  type: CursorType.Contact,
+                  title: ["EMAIL US"],
+                })
+              }
               onMouseLeave={() => transformCursor({ type: CursorType.Default })}
             >
               <div className="text-[140px] font-bold">CONNECT</div>

@@ -1,4 +1,4 @@
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useEffect } from "react";
 import { MotionValue, motion } from "framer-motion";
 import useMousePosition from "./useMousePosition";
 import { gradientColorType } from "./useTextColorChange";
@@ -41,6 +41,14 @@ export default function useCursorCircle(color: gradientColorType) {
     func: () => void;
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   }>({ funcExist: false, func: null! });
+
+  //スクロールした際、一度デフォルトに戻す
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setCursorVariant(CursorType.Default);
+      setCursorText([""]);
+    });
+  }, []);
 
   const { ref, mouseXPosition, mouseYPosition } = useMousePosition();
 
@@ -187,6 +195,13 @@ export default function useCursorCircle(color: gradientColorType) {
           animate={cursorVariant}
           transition={spring}
           onMouseEnter={() =>
+            transformCursor({
+              type: cursorVariant,
+              title: cursorText,
+              clickFunc: onClickFunc.func,
+            })
+          }
+          onMouseMove={() =>
             transformCursor({
               type: cursorVariant,
               title: cursorText,

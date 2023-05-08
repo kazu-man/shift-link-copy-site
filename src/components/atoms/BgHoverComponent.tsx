@@ -21,6 +21,10 @@ export default function BgHoverComponent({ content }: bgHoverProps) {
         transformCursor({ type: CursorType.Small });
         setHover(true);
       }}
+      onMouseMove={() => {
+        transformCursor({ type: CursorType.Small });
+        setHover(true);
+      }}
       onMouseLeave={() => {
         transformCursor({ type: CursorType.Default });
         setHover(false);

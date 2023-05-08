@@ -35,6 +35,13 @@ export default function Team({
             clickFunc: visitUrl,
           })
         }
+        onMouseMove={() =>
+          transformCursor({
+            type: CursorType.Visit,
+            title: ["VISIT", "WEBSITE"],
+            clickFunc: visitUrl,
+          })
+        }
         onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       >
         <div className="w-[30%] flex items-center">

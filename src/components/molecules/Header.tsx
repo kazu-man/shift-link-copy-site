@@ -25,6 +25,7 @@ export default function Header() {
       <div
         className="font-bold grid place-content-center cursor-pointer"
         onMouseEnter={() => transformCursor({ type: CursorType.Clip })}
+        onMouseMove={() => transformCursor({ type: CursorType.Clip })}
         onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       >
         SHIFT LINK

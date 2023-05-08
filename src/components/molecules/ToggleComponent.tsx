@@ -33,6 +33,16 @@ export default function ToggleComponent({
           ),
         })
       }
+      onMouseMove={() =>
+        transformCursor({
+          type: CursorType.Image,
+          wageImage: (
+            <Canvas style={{ background: "transparent" }}>
+              <WaveImageComponent image={image} persist={true} />
+            </Canvas>
+          ),
+        })
+      }
       onMouseLeave={() => transformCursor({ type: CursorType.Default })}
       onClick={() => setOpen(!open)}
     >
