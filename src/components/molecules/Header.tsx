@@ -5,6 +5,7 @@ import BorderMoveComponent from "../atoms/BorderHoverComponent";
 import { CursorType } from "../hooks/useCursorAnimation";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "./Menu";
+import { Link } from "react-scroll";
 
 export default function Header() {
   const menus = [
@@ -61,7 +62,9 @@ export default function Header() {
                   },
                 }}
               >
-                SHIFT LINK
+                <Link to="TOP" spy={true} smooth={true} duration={500}>
+                  SHIFT LINK
+                </Link>
               </motion.div>
             </div>
 
@@ -76,10 +79,15 @@ export default function Header() {
                   );
                 }
                 return (
-                  <BorderMoveComponent
+                  <Link
+                    to={el.title}
+                    spy={true}
+                    smooth={true}
+                    duration={500}
                     key={"header_" + index}
-                    content={el.title}
-                  />
+                  >
+                    <BorderMoveComponent content={el.title} />
+                  </Link>
                 );
               })}
             </div>

@@ -55,8 +55,14 @@ export default function Menu({
                     duration: stagger,
                   },
                 }}
+                onClick={menuClose}
               >
-                SHIFT LINK!!!
+                <a
+                  href="#TOP"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  SHIFT LINK
+                </a>
               </motion.div>
             </div>
 
@@ -114,10 +120,16 @@ export default function Menu({
                         delay: index / 5,
                       },
                     }}
+                    onClick={menuClose}
                     key={"Menu_Rotate_" + text + "_" + index}
                     className="w-screen ml-10 text-[11vw] font-semibold uppercase cursor-pointer"
                   >
-                    {text}
+                    <a
+                      href={`#${text}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      {text}
+                    </a>
                   </motion.div>
                 );
               })}

@@ -8,7 +8,7 @@ import { ParagraphPosition } from "../atoms/TitleParagraphComponent";
 
 export default function Services() {
   return (
-    <SectionLayout>
+    <SectionLayout sectionId="SERVICES">
       <Service
         title={["MULTIPLE", "ENVIRONMENTS"]}
         subTitle={["SHIFT LINKは様々なデジタル", "環境に柔軟に対応します。"]}

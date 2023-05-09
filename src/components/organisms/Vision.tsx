@@ -14,7 +14,7 @@ export default function Vision() {
     "シフトしていきます。",
   ];
   return (
-    <SectionLayout classes={["relative", "my-20"]}>
+    <SectionLayout classes={["relative", "my-20"]} sectionId="OUR VISION">
       <div className="mb-10 mx-[5%] text-lg font-bold text-white flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

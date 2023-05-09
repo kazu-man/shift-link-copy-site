@@ -21,6 +21,7 @@ export default function Contact() {
         <div
           ref={scrollTargetRef}
           className="h-screen flex items-center justify-center"
+          id="CONTACT"
         >
           <div className="pl-16 pr-5 md:px-0 w-auto h-2/3 leading-tight flex flex-col justify-center">
             <div className="md:w-1/2 text-xs md:text-sm">

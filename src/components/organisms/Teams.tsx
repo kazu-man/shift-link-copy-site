@@ -33,7 +33,7 @@ export default function Teams() {
   ];
 
   return (
-    <SectionLayout>
+    <SectionLayout sectionId="TEAMS">
       <div className="relative m-auto my-36 w-full overflow-hidden md:px-10">
         <div className="max-w-6xl">
           <RotateAppearComponent>TEAMS</RotateAppearComponent>
