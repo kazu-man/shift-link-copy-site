@@ -15,7 +15,7 @@ export default function RotateAppearComponent({
     once: true,
   });
   return (
-    <div ref={ref} className="text-title md:text-[90px] font-bold block">
+    <div ref={ref} className="text-title lg:text-[90px] font-bold block">
       {isInView && (
         <div
           className={`animate-rotateAppear origin-bottom-left inline-block ${

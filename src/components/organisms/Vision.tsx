@@ -33,7 +33,7 @@ export default function Vision() {
         </svg>
         OUR FUTURE VISION
       </div>
-      <div className="text-[8vw] md:text-[80px]">
+      <div className="text-[8vw] lg:text-[80px]">
         <BigMessage message={messageList} layout={BigMessageLayout.Left} />
       </div>
     </SectionLayout>

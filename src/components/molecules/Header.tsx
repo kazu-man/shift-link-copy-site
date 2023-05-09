@@ -38,7 +38,7 @@ export default function Header() {
                 duration: 0.8,
               },
             }}
-            className="text-white flex justify-between pt-10 md:pt-20 px-2 md:px-10 fixed top-0 w-full z-[99] text-xs md:text-base"
+            className="text-white flex justify-between pt-10 lg:pt-20 px-2 lg:px-10 fixed top-0 w-full z-[99] text-xs lg:text-base"
             style={{ color: gradientColor }}
           >
             <div
@@ -68,7 +68,7 @@ export default function Header() {
               </motion.div>
             </div>
 
-            <div className="hidden w-1/2 md:flex justify-between">
+            <div className="hidden w-1/2 lg:flex justify-between">
               {menus.map((el, index) => {
                 if (el.circle) {
                   return (
@@ -92,7 +92,7 @@ export default function Header() {
                 );
               })}
             </div>
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <BgHoverComponent content={"MENU"} clickFunc={openMenu} />
             </div>
           </motion.div>

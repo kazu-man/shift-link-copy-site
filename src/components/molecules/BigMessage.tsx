@@ -22,7 +22,7 @@ export default function BigMessage({ message, layout }: bigMessageProps) {
   });
 
   return (
-    <div className={`md:flex md:px-20 items-center ${layout}`}>
+    <div className={`lg:flex lg:px-20 items-center ${layout}`}>
       <div className={`font-bold w-auto h-full ${layout}`}>{content}</div>
     </div>
   );

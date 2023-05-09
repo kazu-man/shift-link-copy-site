@@ -12,7 +12,7 @@ export default function About() {
   ];
   return (
     <SectionLayout
-      classes={["relative", "text-[6vw] md:text-[80px] mb-[50%] md:mb-[20%]"]}
+      classes={["relative", "text-[6vw] lg:text-[80px] mb-[50%] lg:mb-[20%]"]}
     >
       <BigMessage message={messageList} layout={BigMessageLayout.Right} />
     </SectionLayout>

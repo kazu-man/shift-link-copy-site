@@ -24,7 +24,7 @@ export default function TitleParagraphComponent({
         key={"titleParagraph_" + index}
         delay={(index / 2) * 0.1}
       >
-        <div className="text-[5.5vw] md:text-[50px] font-bold">{text}</div>
+        <div className="text-[5.5vw] lg:text-[50px] font-bold">{text}</div>
       </ScrollInViewComponent>
     );
   });
@@ -40,7 +40,7 @@ export default function TitleParagraphComponent({
                 key={"paragraph_" + index}
                 delay={(index + 1) * 0.3}
               >
-                <span className="text-md md:text-[25px] md:leading-loose">
+                <span className="text-md lg:text-[25px] lg:leading-loose">
                   {text}
                   <br />
                 </span>

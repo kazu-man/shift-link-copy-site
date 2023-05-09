@@ -48,11 +48,11 @@ export default function Contact() {
               }
               onMouseLeave={() => transformCursor({ type: CursorType.Default })}
             >
-              <div className="text-mainTitle md:text-[140px] font-bold">
+              <div className="text-mainTitle lg:text-[140px] font-bold">
                 CONNECT
               </div>
               <span
-                className="text-mainTitle md:text-[140px] font-bold clipped-text flex items-center"
+                className="text-mainTitle lg:text-[140px] font-bold clipped-text flex items-center"
                 style={{
                   WebkitTextStrokeColor: "black",
                   WebkitTextStrokeWidth: "1px",

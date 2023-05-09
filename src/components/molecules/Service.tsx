@@ -21,7 +21,7 @@ export default function Service({
   image,
 }: serviceProps) {
   return (
-    <div className="mb-32 md:mb-64">
+    <div className="mb-32 lg:mb-64">
       <div className="flex justify-center relative m-auto my-20 w-full h-[350px] md:h-screen max-w-6xl">
         <div className="mx-auto absolute w-full h-full top-20 left-0 ">
           <Canvas
@@ -33,7 +33,7 @@ export default function Service({
             <WaveImageComponent image={image} />
           </Canvas>
         </div>
-        <div className="md:w-3/4 w-full absolute md:-left-20">
+        <div className="lg:w-3/4 w-full absolute lg:-left-20">
           <MultiLineRotate titles={title} />
         </div>
       </div>
