@@ -67,7 +67,6 @@ export default function Menu({
             </div>
 
             <motion.div
-              className="md:hidden"
               initial={{
                 opacity: 0,
               }}
@@ -95,7 +94,7 @@ export default function Menu({
           </div>
 
           <div className="h-full w-full flex justify-center items-center flex-col">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden -ml-10 md:ml-0">
               {titles.map((text, index) => {
                 return (
                   <motion.div
@@ -109,7 +108,7 @@ export default function Menu({
                     }}
                     animate={{
                       y: 0,
-                      x: Math.abs(getRandomNumber(150)),
+                      x: Math.abs(Math.sin(Math.tan(index))) * 15,
                       rotateZ: 0,
                       rotateX: 0,
                       rotateY: 0,
@@ -120,9 +119,16 @@ export default function Menu({
                         delay: index / 5,
                       },
                     }}
+                    exit={{
+                      opacity: 0,
+                      y: "100%",
+                      transition: {
+                        duration: stagger,
+                      },
+                    }}
                     onClick={menuClose}
                     key={"Menu_Rotate_" + text + "_" + index}
-                    className="w-screen ml-10 text-[11vw] font-semibold uppercase cursor-pointer"
+                    className="w-screen text-center md:mx-auto text-[11vw] md:text-[60px] font-semibold uppercase cursor-pointer"
                   >
                     <a
                       href={`#${text}`}
@@ -144,6 +150,13 @@ export default function Menu({
                   transition: {
                     duration: animationDuration,
                     delay: stagger,
+                  },
+                }}
+                exit={{
+                  opacity: 0,
+                  y: "100%",
+                  transition: {
+                    duration: stagger,
                   },
                 }}
                 className="text-black"

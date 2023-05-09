@@ -13,7 +13,7 @@ export default function Header() {
     { title: "TEAMS" },
     { title: "OUR VISION" },
     { title: "CONTACT" },
-    { title: "EN", circle: true },
+    { title: "MENU", circle: true },
   ];
 
   const transformCursor = useContext(CursorContext);
@@ -75,6 +75,7 @@ export default function Header() {
                     <BgHoverComponent
                       key={"header_" + index}
                       content={el.title}
+                      clickFunc={openMenu}
                     />
                   );
                 }
