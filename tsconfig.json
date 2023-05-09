@@ -20,6 +20,6 @@
     "noFallthroughCasesInSwitch": true,
     "allowJs": true
   },
-  "include": ["src"],
+  "include": ["src", "glsl.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
