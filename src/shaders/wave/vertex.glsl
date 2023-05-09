@@ -1,4 +1,3 @@
-export const vertexShader = `
 uniform float uTime;
 uniform float uBigWavesElevation;
 uniform vec2 uBigWavesFrequency;
@@ -121,4 +120,3 @@ void main()
     vUv = uv;
 
   }
-`;

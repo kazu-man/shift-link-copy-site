@@ -1,4 +1,3 @@
-export const fragmentShader = `  
   uniform vec2 uPlaneSize;
   uniform vec2 uImageSize;
   uniform float uTime;
@@ -12,4 +11,3 @@ export const fragmentShader = `
 
     gl_FragColor = color;
   }
-`;

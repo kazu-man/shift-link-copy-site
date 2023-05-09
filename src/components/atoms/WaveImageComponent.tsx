@@ -1,8 +1,9 @@
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import * as THREE from "three";
-import { vertexShader } from "../../shaders/vertex";
-import { fragmentShader } from "../../shaders/fragment";
+
+import vertexShader from "../../shaders/flag/vertex.glsl";
+import fragmentShader from "../../shaders/flag/fragment.glsl";
 
 interface MyMaterial extends THREE.ShaderMaterial {
   uniforms: {
@@ -31,24 +32,29 @@ export default function WaveImageComponent({
 
   const material = new THREE.ShaderMaterial({
     uniforms: {
-      uPlaneSize: { value: new THREE.Vector2(PLANE_WIDTH, PLANE_HEIGHT) },
-      uImageSize: { value: new THREE.Vector2(img.width, img.height) },
       uTexture: { value: tex },
       uTime: { value: 0 },
+      uPlaneSize: { value: new THREE.Vector2(PLANE_WIDTH, PLANE_HEIGHT) },
+      uImageSize: { value: new THREE.Vector2(img.width, img.height) },
 
-      uBigWavesElevation: { value: 0.1 },
-      uBigWavesFrequency: { value: new THREE.Vector2(1, 1) },
-      uBigWavesSpeed: { value: 1.1 },
+      //旗にするなら
+      uFrequency: { value: new THREE.Vector2(2, 1) },
+      uColor: { value: new THREE.Color("orange") },
 
-      uSmallWavesElevation: { value: 0.1 },
-      uSmallWavesFrequency: { value: 1 },
-      uSmallWavesSpeed: { value: 0.2 },
-      uSmallIterations: { value: 4 },
+      //波型にするなら
+      // uBigWavesElevation: { value: 0.1 },
+      // uBigWavesFrequency: { value: new THREE.Vector2(1, 1) },
+      // uBigWavesSpeed: { value: 1.1 },
 
-      uDepthColor: { value: new THREE.Color("#ff0000") },
-      uSurfaceColor: { value: new THREE.Color("#0000ff") },
-      uColorOffset: { value: 0.08 },
-      uColorMultiplier: { value: 8 },
+      // uSmallWavesElevation: { value: 0.1 },
+      // uSmallWavesFrequency: { value: 1 },
+      // uSmallWavesSpeed: { value: 0.2 },
+      // uSmallIterations: { value: 4 },
+
+      // uDepthColor: { value: new THREE.Color("#ff0000") },
+      // uSurfaceColor: { value: new THREE.Color("#0000ff") },
+      // uColorOffset: { value: 0.08 },
+      // uColorMultiplier: { value: 8 },
     },
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
@@ -95,33 +101,7 @@ export default function WaveImageComponent({
       <planeGeometry args={[PLANE_WIDTH, PLANE_HEIGHT, 64, 64]} />
 
       {/* なぜかこの書き方だとマウスのアニメーションが干渉して動かない */}
-      {/* <shaderMaterial
-        uniforms={{
-          uPlaneSize: { value: new THREE.Vector2(PLANE_SIZE, PLANE_SIZE) },
-          uImageSize: { value: new THREE.Vector2(img.width, img.height) },
-          uTexture: { value: tex },
-          uTime: { value: 0 },
-
-          uBigWavesElevation: { value: 0.1 },
-          uBigWavesFrequency: { value: new THREE.Vector2(1, 1) },
-          uBigWavesSpeed: { value: 1.1 },
-
-          uSmallWavesElevation: { value: 0.1 },
-          uSmallWavesFrequency: { value: 1 },
-          uSmallWavesSpeed: { value: 0.2 },
-          uSmallIterations: { value: 4 },
-
-          uDepthColor: { value: new THREE.Color("#ff0000") },
-          uSurfaceColor: { value: new THREE.Color("#0000ff") },
-          uColorOffset: { value: 0.08 },
-          uColorMultiplier: { value: 8 },
-        }}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        transparent={true}
-        opacity={0.3}
-        // wireframe: true,
-      /> */}
+      {/* <shaderMaterial ... /> */}
     </mesh>
   );
 }
