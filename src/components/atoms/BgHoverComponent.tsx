@@ -5,9 +5,20 @@ import { motion } from "framer-motion";
 
 type bgHoverProps = {
   content: string;
+  deactivateHoverAnimation?: boolean;
+  color?: {
+    background: string;
+    text: string;
+  };
+  clickFunc?: () => void;
 };
 
-export default function BgHoverComponent({ content }: bgHoverProps) {
+export default function BgHoverComponent({
+  content,
+  color,
+  deactivateHoverAnimation,
+  clickFunc,
+}: bgHoverProps) {
   const [hover, setHover] = useState(false);
   const transformCursor = useContext(CursorContext);
   const { gradientColor, reversedGradientColor } = useContext(
@@ -16,27 +27,35 @@ export default function BgHoverComponent({ content }: bgHoverProps) {
 
   return (
     <motion.div
-      className={`align-middle inline-block mx-6 cursor-pointer py-0 px-4 rounded-2xl border-2 relative my-0 overflow-hidden border-white border-separate`}
+      className={`align-middle inline-block cursor-pointer py-0 px-4 rounded-2xl border-2 relative my-0 overflow-hidden border-white border-separate`}
       onMouseEnter={() => {
         transformCursor({ type: CursorType.Small });
-        setHover(true);
+        !deactivateHoverAnimation && setHover(true);
       }}
       onMouseMove={() => {
         transformCursor({ type: CursorType.Small });
-        setHover(true);
+        !deactivateHoverAnimation && setHover(true);
       }}
       onMouseLeave={() => {
         transformCursor({ type: CursorType.Default });
-        setHover(false);
+        !deactivateHoverAnimation && setHover(false);
       }}
-      style={{ borderColor: gradientColor }}
+      onClick={clickFunc}
+      style={{
+        borderColor: color ? color.background : gradientColor,
+        background: color && color.background,
+        color: color && color.text,
+      }}
     >
       {content}
       <motion.div
         className={`transform transition duration-200 absolute left-0 -top-0.5 w-full  cursor-pointer mt-0 py-0 px-3.5 border-2 my-0 bg-white border-white ${
           !hover && "translate-y-full"
         }`}
-        style={{ background: gradientColor, borderColor: gradientColor }}
+        style={{
+          background: gradientColor,
+          borderColor: gradientColor,
+        }}
       >
         <motion.div
           className={`transform transition ${
