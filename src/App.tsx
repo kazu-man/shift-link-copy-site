@@ -14,6 +14,7 @@ import Contact from "./components/organisms/Contact";
 import useTextColorChange, {
   gradientColorType,
 } from "./components/hooks/useTextColorChange";
+import BackgroundAnimation from "./components/organisms/BackgroundAnimation";
 export const CursorContext = createContext<cursorActionFuncType>(
   {} as cursorActionFuncType
 );
@@ -26,6 +27,7 @@ function App() {
   const { transformCursor, ref, cursorCircle } = useCursorCircle(gradientColor);
   return (
     <div ref={ref}>
+      <BackgroundAnimation />
       <CursorContext.Provider value={transformCursor}>
         <ScrollGradientColorContext.Provider value={gradientColor}>
           {cursorCircle}
