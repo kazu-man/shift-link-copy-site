@@ -5,7 +5,7 @@ import { useMemo } from "react";
 export default function BackgroundAnimation() {
   const animation = useMemo(() => {
     return (
-      <div className="w-screen h-screen fixed">
+      <div className="w-screen h-screen fixed z-[-999]">
         <Canvas
           dpr={2}
           camera={{
