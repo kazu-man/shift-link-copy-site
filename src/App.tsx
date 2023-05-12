@@ -6,7 +6,7 @@ import About from "./components/organisms/About";
 import Top from "./components/organisms/Top";
 import Services from "./components/organisms/Services";
 import ToggleAbout from "./components/organisms/ToggleAbout";
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import ShowCases from "./components/organisms/ShowCases";
 import Vision from "./components/organisms/Vision";
 import Teams from "./components/organisms/Teams";
@@ -15,6 +15,7 @@ import useTextColorChange, {
   gradientColorType,
 } from "./components/hooks/useTextColorChange";
 import BackgroundAnimation from "./components/organisms/BackgroundAnimation";
+import Loading from "./components/organisms/Loading";
 export const CursorContext = createContext<cursorActionFuncType>(
   {} as cursorActionFuncType
 );
@@ -25,23 +26,37 @@ export const ScrollGradientColorContext = createContext<gradientColorType>(
 function App() {
   const gradientColor = useTextColorChange();
   const { transformCursor, ref, cursorCircle } = useCursorCircle(gradientColor);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div ref={ref}>
+      <Loading loading={loading} />
       <BackgroundAnimation />
-      <CursorContext.Provider value={transformCursor}>
-        <ScrollGradientColorContext.Provider value={gradientColor}>
-          {cursorCircle}
-          <Header />
-          <Top />
-          <About />
-          <Services />
-          <ToggleAbout />
-          <ShowCases />
-          <Vision />
-          <Teams />
-          <Contact />
-        </ScrollGradientColorContext.Provider>
-      </CursorContext.Provider>
+      {!loading && (
+        <>
+          <CursorContext.Provider value={transformCursor}>
+            <ScrollGradientColorContext.Provider value={gradientColor}>
+              {cursorCircle}
+              <Header />
+              <Top />
+              <About />
+              <Services />
+              <ToggleAbout />
+              <ShowCases />
+              <Vision />
+              <Teams />
+              <Contact />
+            </ScrollGradientColorContext.Provider>
+          </CursorContext.Provider>
+        </>
+      )}
     </div>
   );
 }
