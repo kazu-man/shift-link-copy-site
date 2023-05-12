@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { CursorContext, ScrollGradientColorContext } from "../../App";
 import BgHoverComponent from "../atoms/BgHoverComponent";
 import BorderMoveComponent from "../atoms/BorderHoverComponent";
 import { CursorType } from "../hooks/useCursorAnimation";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "./Menu";
 import { Link } from "react-scroll";
+import { CursorContext, ScrollGradientColorContext } from "../pages/MainPage";
 
 export default function Header() {
   const menus = [

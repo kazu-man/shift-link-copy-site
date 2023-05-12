@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import SectionLayout from "../layout/SectionLayout";
 import { useContext } from "react";
-import { CursorContext, ScrollGradientColorContext } from "../../App";
 import { CursorType } from "../hooks/useCursorAnimation";
 import ScrollInViewComponent from "../atoms/ScrollInViewAppearBottomComponent";
+import { ScrollGradientColorContext, CursorContext } from "../pages/MainPage";
 
 export default function Contact() {
   const { scrollTargetRef, scrollYProgress, gradientColor } = useContext(

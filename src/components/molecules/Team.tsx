@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from "react";
 import { CursorType } from "../hooks/useCursorAnimation";
-import { CursorContext } from "../../App";
 import ScrollInViewBorder from "../atoms/ScrollInViewBorderComponent";
+import { CursorContext } from "../pages/MainPage";
 
 export type TeamsProps = {
   title: string | ReactNode;

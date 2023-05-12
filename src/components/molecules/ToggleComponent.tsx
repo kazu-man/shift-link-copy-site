@@ -2,9 +2,9 @@ import { useContext, useState } from "react";
 import PlusButton from "../atoms/PlusButton";
 import { motion } from "framer-motion";
 import { CursorType } from "../hooks/useCursorAnimation";
-import { CursorContext } from "../../App";
 import WaveImageComponent from "../atoms/WaveImageComponent";
 import { Canvas } from "@react-three/fiber";
+import { CursorContext } from "../pages/MainPage";
 
 export type toggleProps = {
   title: string;

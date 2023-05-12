@@ -1,10 +1,10 @@
 import { useContext, useRef, useState } from "react";
-import { CursorContext } from "../../App";
 import TitleParagraphComponent, {
   ParagraphPosition,
 } from "../atoms/TitleParagraphComponent";
 import { CursorType } from "../hooks/useCursorAnimation";
 import MultiLineRotate from "./MultiLineRotate";
+import { CursorContext } from "../pages/MainPage";
 
 type showCaseProps = {
   title: string[];

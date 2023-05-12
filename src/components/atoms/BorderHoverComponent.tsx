@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { CursorType } from "../hooks/useCursorAnimation";
-import { CursorContext, ScrollGradientColorContext } from "../../App";
 import { motion } from "framer-motion";
+import { CursorContext, ScrollGradientColorContext } from "../pages/MainPage";
 
 type borderMoveProps = {
   content: string;
